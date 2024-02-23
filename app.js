@@ -13,6 +13,7 @@ const data = []
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
+    cont.innerHTML=""
     data.push({
 
         name:namee.value,
@@ -22,20 +23,22 @@ form.addEventListener("submit",(e)=>{
     })
 
 
-const tablita = data.map(dat=>{ 
+data.forEach(data=>{
 
-    
-  `<tr>
-   <td>Juan</td>
-   <td>ApellidoJuan</td>
-   <td>1234-3213</td>
-   <td>70</td>
-  </tr>`
+    const row = document.createElement("tr")
+    row.innerHTML=`
+                <td>${data.name}</td>
+                <td>${data.lastn}</td>
+                <td>${data.mati}</td>
+                <td>${data.nota}</td>
+    `
+    cont.appendChild(row)
 
-  
+
 })
 
-cont.appendChild(tablita)
+form.reset()
+
    
     
 })
